@@ -2,7 +2,8 @@ package 对象数组;
 import java.util.Arrays;
 /**
  * 
- * 使用对象数组实现多个Chicken的管理*/
+ * 使用对象数组实现多个Chicken的管理
+ * */
 public class Test01 {
 	public static void main(String[] args) {
 
@@ -59,7 +60,18 @@ class ChickenManager{
 	}
 	//删除
 	public void delete(int id) {
-		
+		for(int i = 0; i<count; i++) {
+			if(jw[i].getId() == id) {
+				//找到了要删除的对象，把该对象之后的对象向前移动一位
+				for(int j=i; j<count-1; j++) {
+					jw[j] = jw[j+1];
+				}
+				//把最后一个对象赋值为空（删除）
+				jw[count -1] =null;
+				count--;//下标减一
+				break;
+			}
+		}
 	}
 	//更新
 	public void update(Chicken c) {
